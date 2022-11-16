@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/style-dash.css" />
+    <link rel="stylesheet" href="../css/dash-addposts.css" />
+  </head>
+  <body>
+    <main>
+      <section class="dash-nav">
+        <div class="container">
+          <div class="d-title-wrapper">
+            <h1 class="dash-title">
+              <a href="./dashboard.html">DASHBOARD</a>
+            </h1>
+          </div>
+          <div class="d-nav-items">
+            <div class="d-nav d-portfolio">
+              <span class="d-ico"><i class="fas fa-briefcase fa-2x"></i></span>
+              <h2><a href="./d-portfolio.html">Portfolio</a></h2>
+            </div>
+            <div class="d-nav d-messages">
+              <span class="d-ico"
+                ><i class="fa-solid fa-message fa-2x"></i
+              ></span>
+              <h2><a href="./d-messages.html">Messages</a></h2>
+            </div>
+            <div class="d-nav d-articles" id="d-ptr-nav">
+              <span class="d-ico"><i class="fas fa-newspaper fa-2x"></i></span>
+              <h2><a href="./d-articles.html" id="d-ptr-nav">Articles</a></h2>
+            </div>
+
+            <div class="d-nav d-testimonies">
+              <span class="d-ico"
+                ><i class="fa-solid fa-person fa-2x"></i
+              ></span>
+              <h2><a href="./d-testmonials.html"> Testimonials</a></h2>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="d-page-sec">
+        <div class="d-header">
+          <h1>Articles</h1>
+          <div class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+        <div class="d-content">
+          <div class="d-content-wrapper">
+            <table>
+              <tr>
+                <td><h4 class="d-article-title">20 years of experience</h4></td>
+                <td><span>17 July 2020</span></td>
+                <td>
+                  <div class="buttons">
+                    <button class="d-dlt-btn">
+                      <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+                    </button>
+                    <button class="d-edt-btn">
+                      <i class="fa-solid fa-pen-to-square fa-2x"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="d-content-wrapper">
+            <table>
+              <tr>
+                <td>
+                  <h4 class="d-article-title">
+                    Improving website performance with self-hosted google fonts
+                    in Gatsby
+                  </h4>
+                </td>
+                <td><span>13 July 2020</span></td>
+                <td>
+                  <div class="buttons">
+                    <button class="d-dlt-btn">
+                      <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+                    </button>
+                    <button class="d-edt-btn">
+                      <i class="fa-solid fa-pen-to-square fa-2x"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="d-content-wrapper">
+            <table>
+              <tr>
+                <td>
+                  <h4 class="d-article-title">
+                    2020 Website & Gatsby Impressions
+                  </h4>
+                </td>
+                <td><span>13 July 2020</span></td>
+                <td>
+                  <div class="buttons">
+                    <button class="d-dlt-btn">
+                      <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+                    </button>
+                    <button class="d-edt-btn">
+                      <i class="fa-solid fa-pen-to-square fa-2x"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <button class="d-post-btn">Add Post</button>
+          <dialog class="form-modal">
+            <form action="" method="dialog">
+              <h1>Add Post</h1>
+              <div class="p-form-item">
+                <label for="p-title">Title :</label>
+                <input type="text" name="p-title" />
+              </div>
+
+              <textarea name="editor1" class="p-form-item"></textarea>
+              <div class="p-form-item">
+                <button class="upload-btn">
+                  <label for="imageurl" class="d-img-label"
+                    ><i class="fas fa-image"></i>&nbsp;UPLOAD IMAGE</label
+                  >
+                  <input
+                    type="file"
+                    class="imageurl"
+                    name="imageurl"
+                    accept="image/*"
+                  />
+                </button>
+              </div>
+
+              <button type="submit" class="p-add-btn p-form-item btn">
+                Post
+              </button>
+            </form>
+          </dialog>
+        </div>
+      </section>
+    </main>
+    <script src="../js/addposts.js"></script>
+    <script src="../js/dash-burger.js"></script>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+body {
+  background-color: #ffffff;
+}
+html {
+  font-size: 14px;
+}
+.blogs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 30px;
+  row-gap: 70px;
+}
+.blog-post {
+  box-sizing: border-box;
+  background-color: #eff3f3;
+  max-width: 400px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 20px 20px;
+  font-size: 1rem;
+  box-shadow: 0 1px 2px #008ccf;
+}
+.b-img {
+  max-width: 370px;
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.blog-header {
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 700;
+  height: 50px;
+}
+.readmore {
+  background-color: #0b0a07;
+  color: white;
+  border-radius: 5px;
+  padding: 0 10px;
+  text-align: center;
+  margin-top: 10px;
+  height: 40px;
+  font-size: 1.2rem;
+  transition: all 0.5s ease-in-out;
+}
+.readmore:hover {
+  background-color: #3e3d3a;
+  border: none;
+}
+.div-readmore {
+  display: flex;
+  justify-content: center;
+}
+.readmore a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.b-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 40px;
+}
+.b-last-sec {
+  font-size: 1rem;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.pager {
+  display: flex;
+  justify-content: center;
+}
+.pager-btn {
+  margin: 40px 10px 0 0;
+  width: 20px;
+}
+@media screen and (max-width: 420px) {
+  .blogs {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 30px;
+  }
+  .blog-post {
+    box-sizing: border-box;
+    background-color: #eff3f3;
+    max-width: 270px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px 20px;
+    font-size: 0.8rem;
+  }
+  .b-img {
+    max-width: 230px;
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  .blog-header {
+    font-size: 0.9rem;
+    font-weight: 700;
+    height: 40px;
+  }
+  .readmore {
+    background-color: #0b0a07;
+    color: white;
+    border-radius: 5px;
+    padding: 0 5px;
+    text-align: center;
+    margin-top: 10px;
+    height: 25px;
+    font-size: 0.8rem;
+  }
+
+  .div-readmore {
+    display: flex;
+    justify-content: center;
+  }
+  .readmore a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  .b-title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 40px;
+  }
+  .b-last-sec {
+    font-size: 0.8rem;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+}

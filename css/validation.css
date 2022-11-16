@@ -1,0 +1,104 @@
+/* CONTACT FORM */
+.form-item {
+  position: relative;
+}
+
+.form-item i {
+  visibility: hidden;
+  position: absolute;
+  right: 10px;
+  top: 17px;
+}
+#c-form .form-item small {
+  display: block;
+}
+#c-form .form-item i {
+  position: absolute;
+  left: 435px;
+  top: 33px;
+}
+#c-form .f-message i {
+  position: absolute;
+  top: 60px;
+}
+.form-item small {
+  visibility: hidden;
+}
+.form-item.success .c-input {
+  border: 2px solid #2ecc71;
+}
+.form-item.success i.fa-check-circle {
+  visibility: visible;
+  color: #2ecc71;
+}
+.form-item.error .c-input {
+  border: 2px solid #e74c3c;
+}
+.form-item.error i.fa-exclamation-circle {
+  visibility: visible;
+  color: #e74c3c;
+}
+.form-item.error small {
+  visibility: visible;
+  color: #e74c3c;
+}
+.form-item.success .r-input {
+  border: 2px solid #2ecc71;
+  border-radius: 5px;
+}
+.form-item.error .r-input {
+  border: 2px solid #e74c3c;
+  border-radius: 5px;
+}
+input:focus {
+  outline: none;
+}
+textarea:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 500px) {
+  #c-form .form-item {
+    position: relative;
+  }
+  #c-form .form-item i {
+    position: absolute;
+    top: 25px;
+    left: 200px;
+  }
+  #c-form .f-message i {
+    top: 45px;
+  }
+
+  #c-form .form-item input {
+    max-width: 220px;
+  }
+  #c-form .form-item textarea {
+    max-width: 220px;
+    width: 100%;
+  }
+
+  #r-form .form-item input {
+    max-width: 220px;
+  }
+  #r-form .form-item textarea {
+    max-width: 220px;
+    width: 100%;
+    height: 100px;
+  }
+  #p-email {
+    width: 100%;
+  }
+  #r-form .form-item {
+    position: relative;
+  }
+  #r-form .f-message small {
+    position: absolute;
+    top: 100%;
+    margin-top: 20px;
+  }
+  #r-form .form-item small {
+    position: absolute;
+    top: 70%;
+  }
+}
