@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/style-dash.css" />
+  </head>
+  <body>
+    <main>
+      <section class="dash-nav">
+        <div class="container">
+          <div class="d-title-wrapper">
+            <h1 class="dash-title">
+              <a href="./dashboard.html">DASHBOARD</a>
+            </h1>
+          </div>
+          <div class="d-nav-items">
+            <div class="d-nav d-portfolio">
+              <span class="d-ico"><i class="fas fa-briefcase fa-2x"></i></span>
+              <h2><a href="./d-portfolio.html">Portfolio</a></h2>
+            </div>
+            <div class="d-nav d-messages" id="d-ptr-nav">
+              <span class="d-ico"
+                ><i class="fa-solid fa-message fa-2x"></i
+              ></span>
+              <h2><a href="./d-messages.html" id="d-ptr-nav">Messages</a></h2>
+            </div>
+            <div class="d-nav d-articles">
+              <span class="d-ico"><i class="fas fa-newspaper fa-2x"></i></span>
+              <h2><a href="./d-articles.html">Articles</a></h2>
+            </div>
+
+            <div class="d-nav d-testimonies">
+              <span class="d-ico"
+                ><i class="fa-solid fa-person fa-2x"></i
+              ></span>
+              <h2><a href="./d-testmonials.html"> Testimonials</a></h2>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="d-page-sec">
+        <div class="d-header">
+          <h1>Messages</h1>
+          <div class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+        <div class="d-content">
+          <div class="d-content-wrapper">
+            <table class="table-message">
+              <tr>
+                <td>
+                  <span>lionelmessi@gmail.com</span><br />
+                  <h3>Lionel Messi</h3>
+                </td>
+                <td>
+                  <p class="d-message-content">
+                    Okay so I have been meaning to out for a project I want done
+                    ; its mostly front-end development
+                  </p>
+                </td>
+                <td><span>12 July 2022</span></td>
+                <td>
+                  <button class="d-dlt-btn">
+                    <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span>kylianmbappe@gmail.com</span><br />
+                  <h3>Kylian Mbappe</h3>
+                </td>
+                <td>
+                  <p class="d-message-content">
+                    I just wanted to say I like your website
+                  </p>
+                </td>
+                <td><span>22 July 2022</span></td>
+                <td>
+                  <button class="d-dlt-btn">
+                    <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span>steviewonder@gmail.com</span><br />
+                  <h3>Stevie Wonder</h3>
+                </td>
+                <td>
+                  <p class="d-message-content">
+                    I was wondering if you could a website that I could actually
+                    see
+                  </p>
+                </td>
+                <td><span>12 July 2022</span></td>
+                <td>
+                  <button class="d-dlt-btn">
+                    <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="../js/dash-burger.js"></script>
+  </body>
+</html>

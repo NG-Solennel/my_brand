@@ -1,0 +1,67 @@
+.form-modal {
+  max-width: 900px;
+  width: 100%;
+  position: absolute;
+  left: 10%;
+  top: 5%;
+  padding: 20px;
+}
+.form-modal::backdrop {
+  background: linear-gradient(45deg, red, blue);
+  opacity: 0.2;
+}
+.form-modal h1 {
+  text-align: center;
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+.p-form-item {
+  margin: 10px;
+}
+.form-modal input[type="text"],
+.form-modal input[type="url"] {
+  width: 70%;
+  height: 30px;
+}
+.p-add-btn {
+  width: 20%;
+  height: 45px;
+  border-radius: 5px;
+  background-color: #0b0a07;
+  transition: all 0.3s ease-in;
+  border-color: #0b0a07;
+  font-size: 24px;
+  color: white;
+  margin-left: 500px;
+}
+.p-add-btn:hover {
+  background-color: #3e3d3a;
+  border: none;
+}
+
+.upload-btn {
+  width: 250px;
+  height: 60px;
+  background-color: #0b0a07;
+  color: white;
+  border: 0;
+  font-size: 32px;
+  line-height: 60px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+.upload-btn:hover {
+  background-color: #3e3d3a;
+}
+input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: scale(4);
+  opacity: 0;
+}
+
+.d-img-label {
+}

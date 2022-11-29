@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/validation.css">
+    <link rel="stylesheet" href="./css/style.css" />
+      
+  </head>
+  <body>
+    <div class="body-container">
+      <header>
+        <nav>
+          <ul class="name-header">
+            <li><a href="./index.html"> N. Solennel</a></li>
+          </ul>
+          <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </a>
+          <div class="navbar-links">
+            <ul class="nav-items">
+              <li class="nav-item nv-ln">
+                <a class="nav-link" href="./index.html"
+                  > Home</a
+                >
+              </li>
+              <li class="nav-item nv-ln">
+                <a class="nav-link" href="./portfolio.html">Work</a>
+              </li>
+              <li class="nav-item nv-ln">
+                <a class="nav-link" href="./about.html">About</a>
+              </li>
+              <li class="nav-item nv-ln">
+                <a class="nav-link" href="./testimonials.html">Testimonials</a>
+              </li>
+              <li class="nav-item nv-ln">
+                <a class="nav-link" href="./blog.html">Blog</a>
+              </li>
+              <li class="nav-item">
+                <button class="btn-git">
+                  <a class="contact-nav" href="./contact.html">CONNECT</a>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+    <main class="c-main">
+      <section class="c-sec1">
+        <div class="c-desc">
+          <h1 class="c-title">Get In Touch</h1>
+          <p class="c-title-desc">
+            Send a general message or details of a project you'd like me to be a
+            part of and I'll get back to you as soon as possible.
+          </p>
+        </div>
+        <div class="c-form">
+          <h4>About You</h4>
+          <form action="#" id="c-form">
+            <div class="form-item f-name">
+              <label for="name">Your name <span class="red-star">*</span></label
+              ><br />
+              <input
+                type="text"
+                name="name"
+                placeholder="Eg; Ngabo Solennel"
+                class="c-input "
+              
+              />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+               <small class="small-name">Error Message</small>
+            </div>
+            <div class="form-item f-email">
+              <label for="email"
+                >Your Email <span class="red-star">*</span></label
+              >
+              <br />
+              <input
+                type="email"
+                name="email"
+                placeholder="Eg; gisubizongabosolennel@gmail.com"
+                class="c-input"
+              />
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+               <small class="small-email">Error Message</small>
+            </div>
+            <div class="form-item">
+              <label for="description">Tell me something short about you </label
+              ><br />
+              <textarea
+                name="description"
+                id=""
+                cols="48"
+                rows="3"
+                placeholder="I am a manager for Tech Solutions and music is my number one hobby"
+                class="c-input "
+              ></textarea>
+              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+             <small class="small-description">Error Message</small>
+            </div>
+
+            <div class="form-item">
+              <h4>Project Details</h4>
+              <input type="checkbox" name="hireme" id="" />
+              <label for="hireme">I am enquiring to hire Solennel</label><br />
+            </div>
+            <div class="form-item f-message">
+              <label for="message"
+                ><h4>General Message<span class="red-star">*</span></h4> </label
+              ><br />
+              <textarea
+                name="message"
+                id=""
+                cols="48"
+                rows="6"
+                class="c-input c-message"
+                placeholder="Message"
+              ></textarea
+              ><i class="fas fa-check-circle"></i>
+              <i class="fas fa-exclamation-circle"></i>
+              <small class="small-message">Error Message</small><br />
+              
+            </div>
+
+            <button class="btn form-item" type="submit">SEND MESSAGE</button>
+          </form>
+        </div>
+      </section>
+      <section class="c-sec2 none">
+        <h3>About Ngabo Solennel</h3>
+
+        <p class="c-profile-desc">
+          <img
+            src="./Images/profile.jpg"
+            alt="profile"
+            width="120px"
+            height="120px"
+            class="c-image"
+            align="left"
+          />
+          I am a Web Developer with 0 years commercial experience, author of
+          CSS3 Foundations, and graduate of Internet Technology. I create
+          successful websites that are fast, easy to use, and built with best
+          practices.
+        </p>
+        <p>Email: <span class="blue">gisubizongabosolennel@gmail.com</span></p>
+        <p>Tel: <span class="blue">250786326711</span></p>
+      </section>
+    </main>
+    <hr class="h-line" />
+      <footer>
+        <div class="flexed">
+          <section class="foot-obj">
+            <div class="img">
+              <img
+                src="./Images/profile.jpg"
+                alt=""
+               
+              />
+              <p class="pro-title">
+                Full Stack <br />
+                Web Developer
+              </p>
+              <p class="f-img-desc">
+                AVAILABLE AS OF <span>DECEMBER</span>
+                <span class="hirenow"
+                  ><a href="./contact.html"> HIRE NOW ></a></span
+                >
+              </p>
+            </div>
+          </section>
+          <section class="foot-obj">
+            <div class="fcols mediaspot">
+              <div class="media-item">
+                <p class="media-desc">
+                  <i class="fab fa-twitter"></i>
+                  <span class="media">Twitter</span><br />
+                  <span class="none-300">
+Follow for web design & development articles, opinions, and
+                  links
+                  </span>
+                  
+                </p>
+              </div>
+              <div class="media-item">
+                <p class="media-desc">
+                  <i class="fab fa-github"></i>
+                  <span class="media">Github</span><br />
+                  <span class="none-300"> Follow for open-source projects such as Hover.css,
+                  Sequence.js, and jQuery Parallax</span>
+                 
+                </p>
+              </div>
+              <div class="media-item">
+                <p class="media-desc">
+                  <i class="fab fa-linkedin"></i>
+                  <span class="media">LinkedIn</span><br /><span class="none-300"> Follow for open-source projects such as Hover.css,
+                  Sequence.js, and jQuery Parallax</span>
+                 
+                </p>
+              </div>
+            </div>
+            <div class="links fcols">
+              <ul class="link-items">
+                <li>
+                  <p>
+                    <span><a href="./about.html">ABOUT</a> </span><br />Learn
+                    about Solennel's skills and workflow
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <span><a href="./portfolio.html">PORTFOLIO</a> </span><br />
+                    View Solennel’s previous work
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <span><a href="./testimonials">TESTIMONIALS</a></span
+                    ><br />Read client recommnedations
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <span><a href="./blog.html">BLOG</a></span
+                    ><br />Read web related articles, opinions & tutorials
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <span><a href="./contact.html">GET IN TOUCH</a></span
+                    ><br />Send a general message
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <span><a href="./contact.html">HIRE Solennel</a> </span
+                    ><br />Enquire about hiring Solennel
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+
+        <p class="foot-end">Based in Kigali, Rwanda</p>
+        <p class="foot-end">
+          Copyright &copy; <span>2022</span> Ngabo Solennel Ltd.
+        </p>
+      </footer>
+  
+    <script src="./js/slider.js"></script>
+  <script src="./js/c-validation.js"></script>
+  </body>
+</html>
