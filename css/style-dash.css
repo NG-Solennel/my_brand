@@ -217,7 +217,7 @@ table td {
   z-index: 100;
 }
 .bar {
-  display: block;
+  display: none;
   height: 4px;
   width: 33px;
   margin-bottom: 5px;

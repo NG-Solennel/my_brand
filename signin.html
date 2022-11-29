@@ -10,26 +10,41 @@
     href="https://fonts.googleapis.com/css?family=Merriweather"
     rel="stylesheet"
   />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+  />
   <link rel="stylesheet" href="./css/style-signin.css" />
   <body>
     <div class="container">
-      <form action="" method="post">
+      <form action="./dashboard/dashboard.html" method="" class="login-form">
         <h1 class="title">Login</h1>
         <div class="field">
-          <input name="username" type="text" required /><br />
+          <input name="username" type="text" autocomplete="off" /><br />
           <span></span>
           <label for="username">Username</label>
+          <small class="small-name"
+            >Please fill in the username
+            <i class="fas fa-exclamation-circle"></i
+          ></small>
         </div>
         <div class="field">
-          <input name="password" type="text" required /><br />
+          <input name="password" type="password" /><br />
           <span></span>
           <label for="password">Password</label>
+          <small class="small-pass"
+            >Please fill in your password
+            <i class="fas fa-exclamation-circle"></i
+          ></small>
+        </div>
+        <div class="error-message">
+          <small class="small">Error Message</small>
+          <i class="fas fa-exclamation-circle"></i>
         </div>
 
-        <button type="submit">
-          <a href="./dashboard/dashboard.html">LOGIN</a>
-        </button>
+        <button type="submit">LOGIN</button>
       </form>
     </div>
+    <script src="./js/signin-validation.js"></script>
   </body>
 </html>
