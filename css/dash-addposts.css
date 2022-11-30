@@ -3,12 +3,16 @@
   width: 100%;
   position: absolute;
   left: 10%;
-  top: 5%;
-  padding: 20px;
+  top: 2%;
+  padding: 0px;
 }
 .form-modal::backdrop {
   background: linear-gradient(45deg, red, blue);
   opacity: 0.2;
+}
+.post-add-form {
+  padding: 10px;
+  background-color: #dbdfe6;
 }
 .form-modal h1 {
   text-align: center;
@@ -63,5 +67,15 @@ input[type="file"] {
   opacity: 0;
 }
 
-.d-img-label {
+.small-title,
+.small-post,
+.small-img {
+  visibility: hidden;
+  margin-left: 50px;
+  color: #e74c3c;
+}
+.small-img {
+  visibility: visible;
+  margin-left: 50px;
+  color: #e74c3c;
 }

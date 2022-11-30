@@ -127,28 +127,43 @@
           </div>
           <button class="d-post-btn">Add Post</button>
           <dialog class="form-modal">
-            <form action="" method="dialog">
+            <form action="#" method="post" class="post-add-form">
               <h1>Add Post</h1>
               <div class="p-form-item">
                 <label for="p-title">Title :</label>
-                <input type="text" name="p-title" />
+                <input type="text" name="p-title" class="p-title" />
+                <div class="small-title">
+                  <small>Error message </small>
+                  <i class="fas fa-exclamation-circle"></i>
+                </div>
+              </div>
+              <div class="p-form-item">
+                <textarea name="editor1" class="p-editor"></textarea>
+               
+                <div class="small-post">
+                <small>Error message </small>
+                <i class="fas fa-exclamation-circle"></i>
               </div>
 
-              <textarea name="editor1" class="p-form-item"></textarea>
               <div class="p-form-item">
                 <button class="upload-btn">
                   <label for="imageurl" class="d-img-label"
                     ><i class="fas fa-image"></i>&nbsp;UPLOAD IMAGE</label
                   >
+
                   <input
                     type="file"
-                    class="imageurl"
+                    class="imageurl p-img"
                     name="imageurl"
                     accept="image/*"
                   />
                 </button>
+             
+               
               </div>
-
+   <div class="small-img">
+ <small>Error Message </small><i class="fas fa-exclamation-circle"></i>
+                </div>
               <button type="submit" class="p-add-btn p-form-item btn">
                 Post
               </button>

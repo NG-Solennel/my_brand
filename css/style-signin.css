@@ -48,7 +48,7 @@ form .field {
   top: 20%;
   left: 5px;
   color: #adadad;
-  transform: translateY(-50%);
+  transform: translateY(-30%);
   font-size: 16px;
   pointer-events: none;
   transition: 0.5s;
@@ -60,21 +60,22 @@ form .field {
   left: 0;
   width: 0%;
   height: 2px;
-  background: #2691d9;
+  background: #adadad;
   transition: 0.5s;
 }
 .field input:focus ~ label,
 .field input:valid ~ label {
-  top: -5px;
-  color: #2691d9;
+  top: -7px;
+  color: #343333;
 }
 .field input:focus ~ span::before,
-.field input:valid ~ span::before {
+.field input:valid ~ span::before,
+.field input:hover ~ span::before {
   width: 100%;
 }
 
 button {
-  margin: 0 0 30px 70px;
+  margin: 25px 0 30px 70px;
   width: 50%;
   height: 50px;
   border: 1px solid;
@@ -95,7 +96,32 @@ button a {
   color: white;
   text-decoration: none;
 }
-/* .head {
-  color: red;
-  text-decoration: double;
-} */
+
+#login-form {
+  position: relative;
+}
+.error-message {
+  position: absolute;
+  left: 70px;
+  top: 240px;
+  text-align: center;
+  max-width: 250px;
+  padding: 0 10px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #e74c3c;
+  color: white;
+  border: 1px solid red;
+  border-radius: 8px;
+  visibility: hidden;
+}
+.field {
+  position: relative;
+}
+.small-pass,
+.small-name {
+  position: absolute;
+  top: 110%;
+  color: #e74c3c;
+  visibility: hidden;
+}
