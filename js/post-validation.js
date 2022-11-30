@@ -15,14 +15,14 @@ rform.addEventListener("submit", (e) => {
   checkName(rname.value.trim());
   checkEmail(remail.value.trim());
 });
-rname.addEventListener("keydown", () => {
+rname.addEventListener("input", () => {
   checkName(rname.value.trim());
 });
-remail.addEventListener("keydown", () => {
+remail.addEventListener("input", () => {
   checkEmail(remail.value.trim());
 });
 
-rmessage.addEventListener("keydown", () => {
+rmessage.addEventListener("input", () => {
   checkMessage(rmessage.value.trim(), false);
 });
 function checkEmail(email) {

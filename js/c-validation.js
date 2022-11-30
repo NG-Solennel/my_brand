@@ -15,13 +15,13 @@ cform.addEventListener("submit", (e) => {
   checkMessage(cmessage.value.trim(), true);
   checkName(cname.value.trim());
 });
-cmessage.addEventListener("keydown", () => {
+cmessage.addEventListener("input", () => {
   checkMessage(cmessage.value.trim(), false);
 });
-cemail.addEventListener("keydown", () => {
+cemail.addEventListener("input", () => {
   checkEmail(cemail.value.trim());
 });
-cname.addEventListener("keydown", () => {
+cname.addEventListener("input", () => {
   checkName(cname.value.trim());
 });
 function checkEmail(email) {
