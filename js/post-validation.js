@@ -44,31 +44,43 @@ function checkEmail(email) {
 
 function checkName(name) {
   let a = typeof name;
-  let format = /^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/;
-  if (isNaN(name) === false) {
-    divName.classList.add("error");
-    divName.classList.remove("success");
-    smallName.textContent = "This is not a valid name";
-  } else if (name.match(format) || containsNumbers(name) === true) {
-    divName.classList.add("error");
-    divName.classList.remove("success");
-    smallName.textContent = "This is not a valid name";
-  } else {
-    divName.classList.add("success");
-    divName.classList.remove("error");
-  }
-  if (name === "" || name === null) {
+  let format = /^[a-z ,.'-]+$/gi;
+  if (name === "" || name === null || name.length < 3) {
     divName.classList.add("error");
     divName.classList.remove("success");
     smallName.textContent = "Please fill in your name";
+  } else if (isNaN(name) === false) {
+    divName.classList.add("error");
+    divName.classList.remove("success");
+    smallName.textContent = "This is not a valid name";
+  } else if (name.match(format) == null) {
+    divName.classList.add("error");
+    divName.classList.remove("success");
+    smallName.textContent = "This is not a valid name";
+  } else if (name.match(format) !== null) {
+    divName.classList.add("success");
+    divName.classList.remove("error");
+    return true;
   }
 }
 
 function checkMessage(message, bool) {
+  let regLetters = /[A-Za-z]/g;
   if (message === "" || message == null) {
     divMessage.classList.add("error");
     divMessage.classList.remove("success");
     smallMessage.textContent = "Please fill in your message";
+  } else if (message.match(regLetters) == null) {
+    divMessage.classList.add("error");
+    divMessage.classList.remove("success");
+    smallMessage.textContent = "Your message contains no content";
+  } else if (
+    message.match(regLetters).length <
+    message.length - message.length / 6
+  ) {
+    divMessage.classList.add("error");
+    divMessage.classList.remove("success");
+    smallMessage.textContent = "Your message contains no content";
   } else {
     divMessage.classList.remove("error");
     green(bool);

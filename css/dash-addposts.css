@@ -1,6 +1,7 @@
 .form-modal {
   max-width: 900px;
   width: 100%;
+  height: 100%;
   position: absolute;
   left: 10%;
   top: 2%;
@@ -44,13 +45,13 @@
 }
 
 .upload-btn {
-  width: 250px;
-  height: 60px;
+  width: 170px;
+  height: 40px;
   background-color: #0b0a07;
   color: white;
   border: 0;
-  font-size: 32px;
-  line-height: 60px;
+  font-size: 24px;
+  line-height: 40px;
   border-radius: 10px;
   position: relative;
   overflow: hidden;
@@ -68,14 +69,14 @@ input[type="file"] {
 }
 
 .small-title,
-.small-post,
-.small-img {
+.small-post {
   visibility: hidden;
   margin-left: 50px;
   color: #e74c3c;
 }
 .small-img {
-  visibility: visible;
-  margin-left: 50px;
   color: #e74c3c;
+  visibility: hidden;
+  margin-left: 20px;
+  margin-top: -10px;
 }
