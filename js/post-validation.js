@@ -86,6 +86,7 @@ function checkMessage(message, bool) {
     green(bool);
   }
 }
+
 const green = (bool) => {
   if (bool === true) {
     return divMessage.classList.add("success");

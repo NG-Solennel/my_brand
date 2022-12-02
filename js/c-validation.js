@@ -2,18 +2,40 @@ const cform = document.querySelector("#c-form");
 const cname = document.querySelector('input[type="text"]');
 const cemail = document.querySelector('input[type="email"');
 const cdesc = document.querySelector('textarea[name="description"]');
+const chire = document.querySelector("input[type='checkbox'");
 const cmessage = document.querySelector(".c-message");
 const smallEmail = document.querySelector(".small-email");
 const smallMessage = document.querySelector(".small-message");
 const smallName = document.querySelector(".small-name");
+const smallDesc = document.querySelector(".small-description");
 const divName = document.querySelector(".f-name");
 const divEmail = document.querySelector(".f-email");
 const divMessage = document.querySelector(".f-message");
+const divDesc = document.querySelector(".f-description");
+let regLetters = /[A-Za-z]/g;
+let messageArr = [];
 cform.addEventListener("submit", (e) => {
   e.preventDefault();
   checkEmail(cemail.value.trim());
   checkMessage(cmessage.value.trim(), true);
   checkName(cname.value.trim());
+  checkDesc(cdesc.value.trim());
+  if (
+    checkEmail(cemail.value.trim()) &&
+    checkMessage(cmessage.value.trim(), true) &&
+    checkName(cname.value.trim()) &&
+    checkDesc(cdesc.value.trim())
+  ) {
+    let message = {
+      name: cname.value.trim(),
+      email: cemail.value.trim(),
+      message: cmessage.value.trim(),
+      description: cdesc.value.trim(),
+      hiring: getCheckbox(chire),
+    };
+    messageArr.push(message);
+    localStorage.setItem("message", JSON.stringify(messageArr));
+  }
 });
 cmessage.addEventListener("input", () => {
   checkMessage(cmessage.value.trim(), false);
@@ -24,29 +46,71 @@ cemail.addEventListener("input", () => {
 cname.addEventListener("input", () => {
   checkName(cname.value.trim());
 });
+cdesc.addEventListener("input", () => {
+  checkDesc(cdesc.value.trim());
+});
+
+function getCheckbox(checkbox) {
+  let p = "";
+  if (checkbox.checked) {
+    p = "Yes";
+  } else {
+    p = "No";
+  }
+  return p;
+}
+
 function checkEmail(email) {
   let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
   if (email.match(pattern)) {
     divEmail.classList.add("success");
     divEmail.classList.remove("error");
+    return true;
   } else {
     divEmail.classList.add("error");
     divEmail.classList.remove("success");
     smallEmail.textContent = "This email is not valid";
   }
-  // if (email.includes("gmail") === false || email.includes("yahoo")) {
-  //   divEmail.classList.add("error");
-  //   divEmail.classList.remove("success");
-  //   smallEmail.textContent = "This email is not valid";
-  // }
   if (email === "" || email === null) {
     divEmail.classList.add("error");
     divEmail.classList.remove("success");
     smallEmail.textContent = "Please fill in your email";
   }
 }
+//
+function checkDesc(desc) {
+  if (desc == null || desc == "") {
+    divDesc.classList.remove("error");
+    return true;
+  } else if (desc.match(regLetters) == null) {
+    divDesc.classList.add("error");
+    divDesc.classList.remove("success");
+    smallDesc.textContent = "That text is not valid";
+    return false;
+  } else if (desc.match(regLetters).length < desc.length - desc.length / 4) {
+    divDesc.classList.add("error");
+    divDesc.classList.remove("success");
+    smallDesc.textContent = "That text is not valid";
+    return false;
+  } else if (desc.length < 10) {
+    divDesc.classList.add("error");
+    divDesc.classList.remove("success");
+    smallDesc.textContent = "Too short of a description";
+    return false;
+  } else if (desc.length < 70) {
+    divDesc.classList.add("error");
+    divDesc.classList.remove("success");
+    smallDesc.textContent = "Tell me more";
+    return false;
+  } else if (desc.length >= 70) {
+    divDesc.classList.remove("error");
+    return true;
+  } else {
+    return true;
+  }
+}
+
 function checkMessage(message, bool) {
-  let regLetters = /[A-Za-z]/g;
   if (message === "" || message == null) {
     divMessage.classList.add("error");
     divMessage.classList.remove("success");
@@ -61,7 +125,7 @@ function checkMessage(message, bool) {
     smallMessage.textContent = "Your message contains no content";
   } else if (
     message.match(regLetters).length <
-    message.length - message.length / 6
+    message.length - message.length / 4
   ) {
     divMessage.classList.add("error");
     divMessage.classList.remove("success");
@@ -69,6 +133,7 @@ function checkMessage(message, bool) {
   } else {
     divMessage.classList.remove("error");
     green(bool);
+    return true;
   }
 }
 const green = (bool) => {

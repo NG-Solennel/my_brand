@@ -143,9 +143,47 @@ main {
   font-weight: 700;
 }
 table td {
-  padding: 5px 20px;
+  padding: 5px 13px;
 }
-
+table .person {
+  position: relative;
+}
+.person .about {
+  box-sizing: border-box;
+  position: absolute;
+  font-size: 15px;
+  width: 180%;
+  line-height: 1.2;
+  letter-spacing: 2;
+  top: 0;
+  left: 70%;
+  transform: translateX(-50%);
+  background-color: aliceblue;
+  color: black;
+  visibility: hidden;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.person .about::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 15px solid;
+  border-color: aliceblue black black aliceblue;
+  border-radius: 10%;
+}
+.person:hover .about {
+  top: -100%;
+  visibility: visible;
+}
+.person:hover {
+  cursor: pointer;
+}
+.table-message {
+  margin-top: 30px;
+}
 .d-dlt-btn {
   height: 45px;
   width: 30px;
