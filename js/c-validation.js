@@ -1,6 +1,8 @@
+setLocalStorage();
+
 const cform = document.querySelector("#c-form");
 const cname = document.querySelector('input[type="text"]');
-const cemail = document.querySelector('input[type="email"');
+const cemail = document.querySelector(".c-email");
 const cdesc = document.querySelector('textarea[name="description"]');
 const chire = document.querySelector("input[type='checkbox'");
 const cmessage = document.querySelector(".c-message");
@@ -12,8 +14,17 @@ const divName = document.querySelector(".f-name");
 const divEmail = document.querySelector(".f-email");
 const divMessage = document.querySelector(".f-message");
 const divDesc = document.querySelector(".f-description");
+let sentModal = document.querySelector(".sentmessage");
+document.querySelector(".close-btn").addEventListener("click", () => {
+  location.reload();
+});
 let regLetters = /[A-Za-z]/g;
 let messageArr = [];
+let n = 0;
+let m = JSON.parse(localStorage.getItem("messages"));
+if (m.length >= 1) {
+  n = Number(m[m.length - 1]["id"]) + 1;
+}
 cform.addEventListener("submit", (e) => {
   e.preventDefault();
   checkEmail(cemail.value.trim());
@@ -26,15 +37,22 @@ cform.addEventListener("submit", (e) => {
     checkName(cname.value.trim()) &&
     checkDesc(cdesc.value.trim())
   ) {
+    sentModal.showModal();
+
     let message = {
+      id: n,
       name: cname.value.trim(),
       email: cemail.value.trim(),
       message: cmessage.value.trim(),
       description: cdesc.value.trim(),
       hiring: getCheckbox(chire),
     };
+    n++;
+    if (localStorage.getItem("messages")) {
+      messageArr = JSON.parse(localStorage.getItem("messages"));
+    }
     messageArr.push(message);
-    localStorage.setItem("message", JSON.stringify(messageArr));
+    localStorage.setItem("messages", JSON.stringify(messageArr));
   }
 });
 cmessage.addEventListener("input", () => {
@@ -144,15 +162,19 @@ const green = (bool) => {
 function checkName(name) {
   let a = typeof name;
   let format = /^[a-z ,.'-]+$/gi;
-  if (name === "" || name === null || name.length < 4) {
+  if (name === "" || name === null) {
     divName.classList.add("error");
     divName.classList.remove("success");
     smallName.textContent = "Please fill in your name";
-  } else if (isNaN(name) === false) {
+  } else if (name.match(format) == null) {
     divName.classList.add("error");
     divName.classList.remove("success");
     smallName.textContent = "This is not a valid name";
-  } else if (name.match(format) == null) {
+  } else if (name.length < 3) {
+    divName.classList.add("error");
+    divName.classList.remove("success");
+    smallName.textContent = "Too short";
+  } else if (isNaN(name) === false) {
     divName.classList.add("error");
     divName.classList.remove("success");
     smallName.textContent = "This is not a valid name";
@@ -160,5 +182,17 @@ function checkName(name) {
     divName.classList.add("success");
     divName.classList.remove("error");
     return true;
+  }
+}
+function setLocalStorage() {
+  if (!localStorage.getItem("blogs")) {
+    localStorage.setItem("blogs", JSON.stringify([]));
+  } else if (!localStorage.getItem("credentials")) {
+    localStorage.setItem(
+      "credentials",
+      JSON.stringify(["ngsolennel@gmail.com", "andela"])
+    );
+  } else if (!localStorage.getItem("messages")) {
+    localStorage.setItem("messages", JSON.stringify([]));
   }
 }

@@ -1,3 +1,5 @@
+setLocalStorage();
+
 const rform = document.querySelector("#r-form");
 const rname = document.querySelector('input[type="text"]');
 const remail = document.querySelector("#p-email");
@@ -8,12 +10,44 @@ let smallName = document.querySelector(".small-name");
 const divName = document.querySelector(".f-name");
 const divEmail = document.querySelector(".f-email");
 const divMessage = document.querySelector(".f-message");
-
 rform.addEventListener("submit", (e) => {
   e.preventDefault();
   checkMessage(rmessage.value.trim(), true);
   checkName(rname.value.trim());
   checkEmail(remail.value.trim());
+
+  if (
+    checkMessage(rmessage.value.trim(), true) &&
+    checkName(rname.value.trim()) &&
+    checkEmail(remail.value.trim())
+  ) {
+    let reply = {
+      name: rname.value.trim(),
+      email: remail.value.trim(),
+      message: rmessage.value.trim(),
+    };
+    let blogs = JSON.parse(localStorage.getItem("blogs"));
+    let id = Number(
+      rform.closest(".p-main-container").firstElementChild.firstElementChild
+        .innerText
+    );
+    blogs.forEach((blog) => {
+      if (blog.id == id) {
+        blog.comments.push(reply);
+      }
+    });
+    localStorage.setItem("blogs", JSON.stringify(blogs));
+    location.reload();
+    // if (localStorage.getItem("replies") == false) {
+    //   repliesArr.push(reply);
+    //   localStorage.setItem("replies", JSON.stringify(repliesArr));
+    // } else {
+    //   let r = JSON.parse(localStorage.getItem("replies"));
+    //   r.push(reply);
+    //   localStorage.setItem("replies", JSON.stringify(r));
+    // }
+    // location.reload();
+  }
 });
 rname.addEventListener("input", () => {
   checkName(rname.value.trim());
@@ -30,6 +64,7 @@ function checkEmail(email) {
   if (email.match(pattern)) {
     divEmail.classList.add("success");
     divEmail.classList.remove("error");
+    return true;
   } else {
     divEmail.classList.add("error");
     divEmail.classList.remove("success");
@@ -76,7 +111,7 @@ function checkMessage(message, bool) {
     smallMessage.textContent = "Your message contains no content";
   } else if (
     message.match(regLetters).length <
-    message.length - message.length / 6
+    message.length - message.length / 4
   ) {
     divMessage.classList.add("error");
     divMessage.classList.remove("success");
@@ -84,6 +119,7 @@ function checkMessage(message, bool) {
   } else {
     divMessage.classList.remove("error");
     green(bool);
+    return true;
   }
 }
 
@@ -92,6 +128,15 @@ const green = (bool) => {
     return divMessage.classList.add("success");
   }
 };
-function containsNumbers(str) {
-  return /\d/.test(str);
+function setLocalStorage() {
+  if (!localStorage.getItem("blogs")) {
+    localStorage.setItem("blogs", JSON.stringify([]));
+  } else if (!localStorage.getItem("credentials")) {
+    localStorage.setItem(
+      "credentials",
+      JSON.stringify(["ngsolennel@gmail.com", "andela"])
+    );
+  } else if (!localStorage.getItem("messages")) {
+    localStorage.setItem("messages", []);
+  }
 }

@@ -4,21 +4,27 @@ body {
 html {
   font-size: 14px;
 }
+html,
+body {
+  position: relative;
+  height: 100%;
+}
 .blogs {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   column-gap: 30px;
   row-gap: 70px;
 }
 .blog-post {
   box-sizing: border-box;
-  background-color: #eff3f3;
+  background-color: #e2ebed;
   max-width: 400px;
   width: 100%;
   border-radius: 10px;
   padding: 20px 20px;
   font-size: 1rem;
-  box-shadow: 0 1px 2px #008ccf;
+  box-shadow: 0 4px 8px #008ccf;
+  overflow-x: hidden;
 }
 .b-img {
   max-width: 370px;
@@ -59,7 +65,7 @@ html {
 .b-title {
   text-align: center;
   font-size: 3rem;
-  margin-bottom: 40px;
+  margin-bottom: 0px;
 }
 .b-last-sec {
   font-size: 1rem;
@@ -67,6 +73,9 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+}
+.like:hover {
+  cursor: pointer;
 }
 .pager {
   display: flex;
@@ -76,6 +85,41 @@ html {
   margin: 40px 10px 0 0;
   width: 20px;
 }
+.stuned {
+  font-size: 45px;
+  text-align: center;
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  border: 10px solid #008ccf;
+  border-radius: 15px;
+  padding: 30px;
+}
+
+.blogs-container {
+  background: white;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 350px;
+}
+.swiper-wrapper {
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
 @media screen and (max-width: 420px) {
   .blogs {
     display: grid;

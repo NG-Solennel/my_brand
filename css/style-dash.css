@@ -38,6 +38,7 @@ main {
 .dash-title {
   text-align: center;
   text-transform: uppercase;
+  letter-spacing: 2px;
 }
 .dash-title a {
   color: white;
@@ -113,17 +114,20 @@ main {
   top: 0px;
   left: 270px;
 }
-
+.blue {
+  color: #008ccf;
+}
 .d-content {
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   color: white;
   background-color: black;
   box-sizing: border-box;
-  padding: 20px 50px;
+  padding: 0px 50px;
   position: absolute;
   top: 90px;
   z-index: 2;
+  border-left: 1px white solid;
 }
 /* .d-content-wrapper {
   display: flex;
@@ -156,34 +160,40 @@ table .person {
   line-height: 1.2;
   letter-spacing: 2;
   top: 0;
-  left: 70%;
+  left: 120%;
   transform: translateX(-50%);
   background-color: aliceblue;
   color: black;
   visibility: hidden;
   padding: 5px 10px;
   border-radius: 10px;
+  transition: all 0.2s ease-in;
 }
 .person .about::before {
   content: "";
   position: absolute;
   top: 100%;
-  left: 50%;
+  left: 10%;
   transform: translateX(-50%);
-  border: 15px solid;
+  border: 10px solid;
   border-color: aliceblue black black aliceblue;
   border-radius: 10%;
 }
 .person:hover .about {
-  top: -100%;
+  top: -80%;
   visibility: visible;
 }
 .person:hover {
   cursor: pointer;
 }
-.table-message {
-  margin-top: 30px;
+.mdate {
+  font-size: 14px;
 }
+
+.table-message {
+  margin-top: 50px;
+}
+
 .d-dlt-btn {
   height: 45px;
   width: 30px;
@@ -236,6 +246,7 @@ table .person {
 }
 .d-dash-wrapper h1 {
   font-size: 32px;
+  margin-top: 250px;
 }
 .d-dash-wrapper {
   display: flex;
@@ -266,7 +277,9 @@ table .person {
   transform-origin: 0 0;
   transition: 0.5s;
 }
-
+.idnone {
+  display: none;
+}
 .toggle-button.is-active span:nth-child(1) {
   transform: translate(0px, -2px) rotate(45deg);
 }
@@ -277,7 +290,19 @@ table .person {
 .toggle-button.is-active span:nth-child(3) {
   transform: translate(-3px, 3px) rotate(-45deg);
 }
-
+.img-add-preview,
+.img-edt-preview {
+  padding: 5px;
+  border: 2px solid #464545;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+.img-add-preview {
+  display: none;
+}
+.edt-idnone {
+  display: none;
+}
 @media screen and (max-width: 700px) {
   .dash-nav {
     opacity: 0.98;

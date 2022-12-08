@@ -57,6 +57,13 @@ textarea:focus {
   outline: none;
 }
 
+.sent {
+  color: #2ecc71;
+  display: block;
+  margin-left: 30px;
+  visibility: hidden;
+}
+
 @media screen and (max-width: 500px) {
   #c-form .form-item {
     position: relative;
