@@ -15,6 +15,7 @@
     />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/b-style.css" />
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css" />
   </head>
   <body>
     <div class="body-container">
@@ -59,151 +60,17 @@
       <main class="b-main">
         <section class="b-main-flexed" id="blog-sec">
           <h1 class="b-title">Blogs</h1>
-          <div class="blogs">
-            <div class="blog-post">
-              <img src="./Images/cssimg.png" alt="" class="b-img" />
-              <h5 class="blog-header">20 years of experience with css</h5>
-              <p class="blog-desc">
-                I've been involved in web development since 2000. Quite possibly
-                my favourite tool that I have used for the last 20 years is CSS.
-                It's easy to use, lightweight, and achieves an enormous amount
-              </p>
-              <div class="div-readmore">
-                <button class="readmore">
-                  <a href="./post1.html">Read More</a>
-                </button>
-              </div>
-              <div class="b-last-sec">
-                <div class="like-comment">
-                  <span>56</span>
-                  <i class="fa-solid fa-heart"></i> &nbsp;&nbsp;&nbsp;
-                  <span>12</span> <i class="fa-solid fa-comment"></i>
-                </div>
-                <span class="date">17 July 2020</span>
-              </div>
-            </div>
-            <div class="blog-post">
-              <img src="./Images/gatsby.jpeg" alt="" class="b-img" />
-              <h5 class="blog-header">2020 Website & Gatsby Impressions</h5>
-              <p class="blog-desc">
-                I've been involved in web development since 2000. Quite possibly
-                my favourite tool that I have used for the last 20 years is CSS.
-                It's easy to use, lightweight, and achieves an enormous amount
-              </p>
-              <div class="div-readmore">
-                <button class="readmore">
-                  <a href="./post1.html">Read More</a>
-                </button>
-              </div>
-              <div class="b-last-sec">
-                <div class="like-comment">
-                  <span>56</span>
-                  <i class="fa-solid fa-heart"></i> &nbsp;&nbsp;&nbsp;
-                  <span>12</span> <i class="fa-solid fa-comment"></i>
-                </div>
-                <span class="date">17 July 2020</span>
-              </div>
-            </div>
-
-            <div class="blog-post">
-              <img src="./Images/googlefonts.png" alt="" class="b-img" />
-              <h5 class="blog-header">
-                Improving website performance with fonts in Gatsby
-              </h5>
-              <p class="blog-desc">
-                It's easy to use, lightweight, and achieves an enormous amount.
-                It's the written language of design that makes the web look
-                great. In this post, I take a look at some of…
-              </p>
-              <div class="div-readmore">
-                <button class="readmore">
-                  <a href="./post1.html">Read More</a>
-                </button>
-              </div>
-              <div class="b-last-sec">
-                <div class="like-comment">
-                  <span>56</span>
-                  <i class="fa-solid fa-heart"></i> &nbsp;&nbsp;&nbsp;
-                  <span>12</span> <i class="fa-solid fa-comment"></i>
-                </div>
-                <span class="date">17 July 2020</span>
-              </div>
-            </div>
-            <div class="blog-post">
-              <img src="./Images/cssimg.png" alt="" class="b-img" />
-              <h5 class="blog-header">20 years of experience with css</h5>
-              <p class="blog-desc">
-                I've been involved in web development since 2000. Quite possibly
-                my favourite tool that I have used for the last 20 years is CSS.
-                It's easy to use, lightweight, and achieves an enormous amount
-              </p>
-              <div class="div-readmore">
-                <button class="readmore">
-                  <a href="./post1.html">Read More</a>
-                </button>
-              </div>
-              <div class="b-last-sec">
-                <div class="like-comment">
-                  <span>56</span>
-                  <i class="fa-solid fa-heart"></i> &nbsp;&nbsp;&nbsp;
-                  <span>12</span> <i class="fa-solid fa-comment"></i>
-                </div>
-                <span class="date">17 July 2020</span>
-              </div>
-            </div>
-            <div class="blog-post">
-              <img src="./Images/gatsby.jpeg" alt="" class="b-img" />
-              <h5 class="blog-header">2020 Website & Gatsby Impressions</h5>
-              <p class="blog-desc">
-                I've been involved in web development since 2000. Quite possibly
-                my favourite tool that I have used for the last 20 years is CSS.
-                It's easy to use, lightweight, and achieves an enormous amount
-              </p>
-              <div class="div-readmore">
-                <button class="readmore">
-                  <a href="./post1.html">Read More</a>
-                </button>
-              </div>
-              <div class="b-last-sec">
-                <div class="like-comment">
-                  <span>56</span>
-                  <i class="fa-solid fa-heart"></i> &nbsp;&nbsp;&nbsp;
-                  <span>12</span> <i class="fa-solid fa-comment"></i>
-                </div>
-                <span class="date">17 July 2020</span>
-              </div>
-            </div>
-
-            <div class="blog-post">
-              <img src="./Images/googlefonts.png" alt="" class="b-img" />
-              <h5 class="blog-header">
-                Improving website performance with fonts in Gatsby
-              </h5>
-              <p class="blog-desc">
-                It's easy to use, lightweight, and achieves an enormous amount.
-                It's the written language of design that makes the web look
-                great. In this post, I take a look at some of…
-              </p>
-              <div class="div-readmore">
-                <button class="readmore">
-                  <a href="./post1.html">Read More</a>
-                </button>
-              </div>
-              <div class="b-last-sec">
-                <div class="like-comment">
-                  <span>56</span>
-                  <i class="fa-solid fa-heart"></i> &nbsp;&nbsp;&nbsp;
-                  <span>12</span> <i class="fa-solid fa-comment"></i>
-                </div>
-                <span class="date">17 July 2020</span>
-              </div>
+          <div class="blogs-container">
+            <div class="swiper mySwiper">
+              <div class="blogs swiper-wrapper"></div>
+              <div class="swiper-pagination"></div>
             </div>
           </div>
-          <div class="pager">
+
+          <!-- <div class="pager">
             <button class="pager-btn">1</button>
-            <button class="pager-btn">2</button>
             <button class="pager-btn">>></button>
-          </div>
+          </div> -->
         </section>
       </main>
       <hr class="h-line" />
@@ -307,6 +174,9 @@
         </p>
       </footer>
     </div>
+    <script src="./js/swiper-bundle.min.js"></script>
+    <script src="./js/swiper.js"></script>
     <script src="./js/slider.js"></script>
+    <script src="./js/create-blogs.js"></script>
   </body>
 </html>

@@ -1,18 +1,20 @@
-const myName = document.querySelector("input[type='text'");
+setLocalStorage();
+
+const myEmail = document.querySelector("input[type='text'");
 const password = document.querySelector("input[type='password'");
 const sform = document.querySelector(".login-form");
 const div = document.querySelector(".error-message");
 const small = document.querySelector(".small");
 const smallPass = document.querySelector(".small-pass");
-const smallName = document.querySelector(".small-name");
+const smallEmail = document.querySelector(".small-name");
 
 sform.addEventListener("submit", (e) => {
   e.preventDefault();
-  if (myName.value.trim() == "") {
-    smallName.style.visibility = "visible";
-    myName.focus();
+  if (myEmail.value.trim() == "") {
+    smallEmail.style.visibility = "visible";
+    myEmail.focus();
     setTimeout(() => {
-      smallName.style.visibility = "hidden";
+      smallEmail.style.visibility = "hidden";
     }, 9000);
   } else if (password.value.trim() == "") {
     smallPass.style.visibility = "visible";
@@ -21,23 +23,31 @@ sform.addEventListener("submit", (e) => {
       smallPass.style.visibility = "hidden";
     }, 9000);
   } else {
-    checkCredentials(myName.value, password.value);
+    checkCredentials(myEmail.value, password.value);
   }
 });
 
-myName.addEventListener("input", () => {
-  checkName(myName.value);
+myEmail.addEventListener("input", () => {
+  checkEmail(myEmail.value);
 });
 
 password.addEventListener("input", () => {
   checkPass(password.value);
 });
 
-const checkName = (name) => {
-  if (name == "" || name == null) {
-    smallName.style.visibility = "visible";
+const checkEmail = (email) => {
+  let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if (email == "" || email == null) {
+    smallEmail.style.visibility = "visible";
   } else {
-    smallName.style.visibility = "hidden";
+    smallEmail.style.visibility = "hidden";
+  }
+
+  if (email.match(pattern)) {
+    smallEmail.style.visibility = "hidden";
+  } else {
+    smallEmail.innerText = "Invalid Email";
+    smallEmail.style.visibility = "visible";
   }
 };
 const checkPass = (pass) => {
@@ -47,9 +57,10 @@ const checkPass = (pass) => {
     smallPass.style.visibility = "hidden";
   }
 };
+let credentials = JSON.parse(localStorage.getItem("credentials"));
 const checkCredentials = (username, password) => {
-  if (username !== "Solennel" || password !== "andela") {
-    small.innerText = "Incorrect Username or password";
+  if (username !== credentials[0] || password !== credentials[1]) {
+    small.innerText = "Incorrect Email or password";
     div.style.visibility = "visible";
     setTimeout(() => {
       div.style.visibility = "hidden";
@@ -59,3 +70,15 @@ const checkCredentials = (username, password) => {
     window.open("./dashboard/dashboard.html", "_self");
   }
 };
+function setLocalStorage() {
+  if (!localStorage.getItem("blogs")) {
+    localStorage.setItem("blogs", JSON.stringify([]));
+  } else if (!localStorage.getItem("credentials")) {
+    localStorage.setItem(
+      "credentials",
+      JSON.stringify(["ngsolennel@gmail.com", "andela"])
+    );
+  } else if (!localStorage.getItem("messages")) {
+    localStorage.setItem("messages", JSON.stringify([]));
+  }
+}

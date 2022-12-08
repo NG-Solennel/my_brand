@@ -63,82 +63,27 @@
         <div class="d-content">
           <div class="d-content-wrapper">
             <table>
-              <tr>
-                <td><h4 class="d-article-title">20 years of experience</h4></td>
-                <td><span>17 July 2020</span></td>
-                <td>
-                  <div class="buttons">
-                    <button class="d-dlt-btn">
-                      <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
-                    </button>
-                    <button class="d-edt-btn">
-                      <i class="fa-solid fa-pen-to-square fa-2x"></i>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            </table>
-          </div>
-
-          <div class="d-content-wrapper">
-            <table>
-              <tr>
-                <td>
-                  <h4 class="d-article-title">
-                    Improving website performance with self-hosted google fonts
-                    in Gatsby
-                  </h4>
-                </td>
-                <td><span>13 July 2020</span></td>
-                <td>
-                  <div class="buttons">
-                    <button class="d-dlt-btn">
-                      <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
-                    </button>
-                    <button class="d-edt-btn">
-                      <i class="fa-solid fa-pen-to-square fa-2x"></i>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            </table>
-          </div>
-          <div class="d-content-wrapper">
-            <table>
-              <tr>
-                <td>
-                  <h4 class="d-article-title">
-                    2020 Website & Gatsby Impressions
-                  </h4>
-                </td>
-                <td><span>13 July 2020</span></td>
-                <td>
-                  <div class="buttons">
-                    <button class="d-dlt-btn">
-                      <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
-                    </button>
-                    <button class="d-edt-btn">
-                      <i class="fa-solid fa-pen-to-square fa-2x"></i>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            </table>
-          </div>
-          <button class="d-post-btn">Add Post</button>
-          <dialog class="form-modal">
-            <form action="#" method="post" class="post-add-form">
-              <h1>Add Post</h1>
+              <thead>
+                <th>
+                  Title
+                </th>
+                <th>Date</th>
+              </thead>
+              <tbody>
+             <dialog class="edt-modal">
+              <span class="edt-idnone"></span>
+            <form action="#" method="post" class="post-edt-form">
+              <h1>Edit Post</h1>
               <div class="p-form-item">
                 <label for="p-title">Title :</label>
-                <input type="text" name="p-title" class="p-title" />
+                <input type="text" name="p-title" class="p-edt-title" />
                 <div class="small-title">
                   <small>Error message </small>
                   <i class="fas fa-exclamation-circle"></i>
                 </div>
               </div>
               <div class="p-form-item">
-                <textarea name="editor1" class="p-editor"></textarea>
+                <textarea name="editor2" class="p-editor"></textarea>
                
                 <div class="small-post">
                 <small>Error message </small>
@@ -153,9 +98,9 @@
 
                   <input
                     type="file"
-                    class="imageurl p-img"
+                    class="imageurl"
                     name="imageurl"
-                    accept="image/*"
+                    id="p-edt-img"
                   />
                 </button>
              
@@ -164,15 +109,75 @@
    <div class="small-img">
  <small>Error Message </small>&nbsp;<i class="fas fa-exclamation-circle"></i>
                 </div>
+                <img src="" alt="" width="170px" height="auto" class="img-edt-preview">
+                <div class="add-edt-btns">
+ <button type="button" class="btn edt-cancel-btn p-form-item">Discard</button>
+              <button type="submit" class="p-edt-btn p-form-item btn">
+                Post
+              </button>
+                </div>
+               
+            </form>
+          </dialog>
+
+              </tbody>
+      
+            </table>
+          </div>
+          <button class="d-post-btn">Add Post</button>
+          <dialog class="form-modal">
+            <form action="#" method="post" class="post-add-form">
+              <h1>Add Post</h1>
+              <div class="p-form-item">
+                <label for="p-title">Title :</label>
+                <input type="text" name="p-title" class="p-title" />
+                <div class="small-title-add">
+                  <small>Error message </small>
+                  <i class="fas fa-exclamation-circle"></i>
+                </div>
+              </div>
+              <div class="p-form-item">
+                <textarea name="editor1" class="p-editor"></textarea>
+               
+                <div class="small-post-add">
+                <small>Error message </small>
+                <i class="fas fa-exclamation-circle"></i>
+              </div>
+
+              <div class="p-form-item">
+                <button class="upload-btn">
+                  <label for="imageurl" class="d-img-label"
+                    ><i class="fas fa-image"></i>&nbsp;UPLOAD</label
+                  >
+
+                  <input
+                    type="file"
+                    class="imageurl p-img"
+                    name="imageurl"
+                  />
+                </button>
+             
+               
+              </div>
+   <div class="small-img-add">
+ <small>Error Message </small>&nbsp;<i class="fas fa-exclamation-circle"></i>
+                </div>
+                 <img src="" alt="" width="170px" height="auto" class="img-add-preview">
+                 <div class="add-edt-btns">
+ <button type="button" class="btn add-cancel-btn p-form-item">Discard</button>
               <button type="submit" class="p-add-btn p-form-item btn">
                 Post
               </button>
+                 </div>
+                
             </form>
           </dialog>
+
         </div>
       </section>
     </main>
     <script src="../js/addposts.js"></script>
+    <script src="../js/admin-posts.js"></script>
     <script src="../js/dash-burger.js"></script>
   </body>
 </html>

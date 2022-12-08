@@ -89,10 +89,10 @@
               >
               <br />
               <input
-                type="email"
+                type="text"
                 name="email"
                 placeholder="Eg; gisubizongabosolennel@gmail.com"
-                class="c-input"
+                class="c-input c-email"
               />
               <i class="fas fa-check-circle"></i>
               <i class="fas fa-exclamation-circle"></i>
@@ -136,8 +136,16 @@
               <small class="small-message">Error Message</small><br />
               
             </div>
-
+<small class="sent">Message sent <i class="fas fa-check-circle"></i></small>
             <button class="btn form-item" type="submit">SEND MESSAGE</button>
+          <dialog class="sentmessage">
+            <div class="sentcont">
+ <p>Your message was successfully sent, Thank You!!</p>
+            <h1>Sent!!</h1>
+            </div>
+           
+            <button class="close-btn"><i class="fa fa-remove close-icon"></i></button>
+          </dialog>
           </form>
         </div>
       </section>
