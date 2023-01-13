@@ -1,2 +1,2 @@
 # my_brand
-This is a repo where i will brand myself to the world
+This is the front end for a portfolio website 
