@@ -20,8 +20,3 @@ window.addEventListener("load", () => {
     });
   }
 });
-
-document.querySelector(".logout").addEventListener("click", () => {
-  localStorage.removeItem("a");
-  location.reload();
-});

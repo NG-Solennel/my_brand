@@ -1,8 +1,3 @@
-document.querySelector(".logout").addEventListener("click", () => {
-  localStorage.removeItem("a");
-  location.reload();
-});
-
 const cform = document.querySelector("#c-form");
 const cname = document.querySelector('input[type="text"]');
 const cemail = document.querySelector(".c-email");

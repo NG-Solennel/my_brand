@@ -122,11 +122,6 @@ form .signup-link a:hover {
   text-decoration: underline;
 }
 
-/* .wrapper form .field.success input:focus,
-form .field.success input:valid {
-  border-color: red;
-} */
-
 form .field small {
   visibility: hidden;
 }

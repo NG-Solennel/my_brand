@@ -6,10 +6,6 @@ let smallMessage = document.querySelector(".small-message");
 
 const divMessage = document.querySelector(".f-message");
 const logpop = document.querySelector(".loginpop");
-document.querySelector(".logout").addEventListener("click", () => {
-  localStorage.removeItem("a");
-  location.reload();
-});
 rform.addEventListener("submit", (e) => {
   e.preventDefault();
   if (!localStorage.getItem("a")) {
