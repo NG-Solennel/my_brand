@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/login.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title">Sign Up</div>
+      <form action="#" method="POST" id="signupform">
+        <div class="field namefield">
+          <input type="text" class="name" />
+          <label>Name</label>
+          <i class="fas fa-check-circle"></i>
+          <small
+            ><span class="name">Please fill in the name</span>
+            <i class="fas fa-exclamation-circle"></i
+          ></small>
+        </div>
+        <div class="field emailfield">
+          <input type="text" class="email" />
+          <label>Email Address</label>
+          <i class="fas fa-check-circle"></i>
+          <small
+            ><span class="email">Please fill in the email</span>
+            <i class="fas fa-exclamation-circle"></i
+          ></small>
+        </div>
+        <div class="field password1field">
+          <input type="password" class="password1" />
+          <label>Password</label>
+          <i class="fas fa-check-circle"></i>
+          <small
+            ><span class="pass1">Please fill in the password</span>
+            <i class="fas fa-exclamation-circle"></i
+          ></small>
+        </div>
+        <div class="field password2field">
+          <input type="password" class="password2" />
+          <label>Confirm Password</label>
+          <i class="fas fa-check-circle"></i>
+          <small
+            ><span class="pass2">Please confirm the password</span>
+            <i class="fas fa-exclamation-circle"></i
+          ></small>
+        </div>
+        <div class="field">
+          <input type="submit" value="Sign Up" />
+        </div>
+      </form>
+    </div>
+    <div class="next">
+      <i class="fas fa-arrow-right fa-10x"></i>
+      <button class="nextbtn">Go Back To Home</button>
+    </div>
+    <dialog class="loading">
+      <img
+        src="./Images/transparent-loader-gif.gif"
+        alt=""
+        class="imgloading"
+      />
+    </dialog>
+    <dialog class="popupfail">
+      <img src="./Images/clear.png" alt="tick" />
+      <h2>Failed!!</h2>
+      <p>Error Signing Up (User already Exist)</p>
+      <button type="button">Ok</button>
+    </dialog>
+    <script src="./js/signup.js"></script>
+  </body>
+</html>

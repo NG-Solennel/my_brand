@@ -52,6 +52,12 @@
                   <a class="contact-nav" href="./contact.html">CONNECT</a>
                 </button>
               </li>
+                 <li class="nav-item login">
+                <button class="btn-git login">
+                  <a class="login-nav" id= "login-anchor" href="./login.html">LOGIN</a>
+                </button>
+              </li>
+              
             </ul>
           </div>
         </nav>
@@ -60,6 +66,9 @@
         <div class="p-main-container">
           <section class="post-section">
             <span class="idnone"></span>
+            <div class="imgdiv">
+              <img src="" class="imgpost" alt="">
+            </div>
             <span class="post-left post-date"></span> <br />
             <h1 class="post-title post-left">
              
@@ -75,7 +84,7 @@
               <div class="reply-sec">
                 <div class="r-center">
                   <h1 class="reply-head">LEAVE A REPLY</h1>
-                  <form action="" id="r-form">
+                  <form action="#" id="r-form">
                     <div class="form-item f-message">
                       <textarea
                         name="comment"
@@ -89,7 +98,7 @@
                       <small class="small-message">Error Message</small>
                     </div>
 
-                    <div class="form-item f-name">
+                    <!-- <div class="form-item f-name">
                       <input
                         type="text"
                         name="name"
@@ -113,10 +122,10 @@
                       <i class="fas fa-check-circle"></i>
                       <i class="fas fa-exclamation-circle"></i><br />
                       <small class="small-email">Error Message</small>
-                    </div>
+                    </div> -->
 
                     <br />
-                    <button class="btn c-btn" type="submit">COMMENT</button>
+                    <button class="btn c-btn" type="submit">SEND</button>
 
                   </form>
                 </div>
@@ -228,6 +237,9 @@
         </p>
       </footer>
     </div>
+    <dialog class="loginpop">
+<p class="logmessage">Please <a href="./login.html">login</a></p>
+</dialog>
     <script src="./js/postvalidation.js"></script>
     <script src="./js/readmorepost.js"></script>
     <script src="./js/postreplies.js"></script>

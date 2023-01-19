@@ -1,14 +1,14 @@
-setLocalStorage();
+const loc = location.href.split("?")[1].split("=")[1];
 
-let d = Number(
-  rform.closest(".p-main-container").firstElementChild.firstElementChild
-    .innerText
-);
-let blogs = JSON.parse(localStorage.getItem("blogs"));
-blogs.forEach((blog) => {
-  if (blog.id == d) {
-    if (blog["comments"].length >= 1) {
-      for (let i = 0; i < blog.comments.length; i++) {
+fetch("https://renderapi-i55u.onrender.com/blogs/" + loc + "/comments", {
+  method: "GET",
+})
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+    let comments = data.comments;
+    if (comments.length >= 1) {
+      for (let i = 0; i < comments.length; i++) {
         let divCont = document.createElement("div");
         divCont.className = "comment";
         let icon = document.createElement("i");
@@ -20,9 +20,9 @@ blogs.forEach((blog) => {
         rmessage.className = "comments-message";
         let rdate = document.createElement("span");
         rdate.className = "c-t-date comments-item";
-        rname.innerText = blog.comments[i]["name"];
-        rmessage.innerText = blog.comments[i]["message"];
-        rdate.innerText = getToday();
+        rname.innerText = comments[i]["name"];
+        rmessage.innerText = comments[i]["message"];
+        rdate.innerText = getToday(comments[i].date);
         divCont.appendChild(icon);
         divMessage.appendChild(rname);
         divMessage.appendChild(rmessage);
@@ -31,11 +31,11 @@ blogs.forEach((blog) => {
         document.querySelector(".comments-container").appendChild(divCont);
       }
     }
-  }
-});
+  });
+let blogs = JSON.parse(localStorage.getItem("blogs"));
 
-function getToday() {
-  let date = new Date();
+function getToday(iso) {
+  let date = new Date(iso);
   let day = "";
   let value = date.getMonth() + 1;
   if (date.getDate() < 10) {
@@ -85,16 +85,4 @@ function getToday() {
       break;
   }
   return day + " " + m + " " + date.getFullYear();
-}
-function setLocalStorage() {
-  if (!localStorage.getItem("blogs")) {
-    localStorage.setItem("blogs", JSON.stringify([]));
-  } else if (!localStorage.getItem("credentials")) {
-    localStorage.setItem(
-      "credentials",
-      JSON.stringify(["ngsolennel@gmail.com", "andela"])
-    );
-  } else if (!localStorage.getItem("messages")) {
-    localStorage.setItem("messages", JSON.stringify([]));
-  }
 }

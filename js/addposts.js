@@ -1,12 +1,41 @@
-//for the editor to work
-setLocalStorage();
+const loading = document.querySelector(".loading");
+window.addEventListener("load", () => {
+  const token = localStorage.getItem("a");
+  if (!token) {
+    window.open("../login.html", "_self");
+  } else {
+    loading.showModal();
+    fetch("https://renderapi-i55u.onrender.com/admin", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+    }).then((res) => {
+      if (res.status == 200) {
+        loading.close();
+      } else {
+        loading.close();
+        window.open("../login.html", "_self");
+      }
+    });
+  }
+});
 
 let trackingDiv = document.querySelector("#trackingDiv");
 CKEDITOR.replace("editor1");
 CKEDITOR.replace("editor2");
+let failBtn = document.querySelector(".popupfail button");
+let failModalTxt = document.querySelector(".popupfail p");
 const addPostsBtn = document.querySelector(".d-post-btn");
 const formDialog = document.querySelector(".form-modal");
+const successDialog = document.querySelector(".popupreal");
 
+const successCloseBtn = document.querySelector(".popupreal button");
+
+failBtn.addEventListener("click", () => {
+  location.reload();
+});
 addPostsBtn.addEventListener("click", () => {
   formDialog.showModal();
 });
@@ -45,6 +74,7 @@ pform.addEventListener("submit", (e) => {
     checkPost(b) &&
     checkImage(pimg.value)
   ) {
+    loading.showModal();
     const fr = new FileReader();
     fr.readAsDataURL(pimg.files[0]);
     fr.addEventListener("load", () => {
@@ -63,16 +93,42 @@ pform.addEventListener("submit", (e) => {
 
       n++;
 
-      if (localStorage.getItem("blogs")) {
-        pdata = JSON.parse(localStorage.getItem("blogs"));
-      }
-      pdata.push(blog);
-      localStorage.setItem("blogs", JSON.stringify(pdata));
-      formDialog.close();
-      location.reload();
+      const formData = new FormData();
+      formData.append("title", ptitle.value);
+      formData.append("content", a);
+      formData.append("image", pimg.files[0]);
+      const options = {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("a"),
+        },
+        body: formData,
+      };
+      fetch("https://renderapi-i55u.onrender.com/blogs", options)
+        .then((res) => {
+          if (res.status == 200) {
+            loading.close();
+            successDialog.showModal();
+          } else if (res.status == 500) {
+            failModalTxt.innerText =
+              "Error posting blog (Possible reasons: Not reaching cloudinary caused by poor internet connection)";
+            failModal.showModal();
+          } else {
+            alert("Error posting blog");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          failModal.showModal();
+        });
     });
   }
 });
+successCloseBtn.addEventListener("click", () => {
+  successDialog.close();
+  location.reload();
+});
+
 cancel.addEventListener("click", () => {
   formDialog.close();
   CKEDITOR.instances.editor1.setData("", () => {
@@ -144,7 +200,6 @@ const checkPost = (post) => {
 const checkImage = (img) => {
   let start = img.indexOf(".");
   let imgExtension = img.substring(start + 1, img.length);
-
   if (img == "" || img == null) {
     divsmallImg.style.visibility = "visible";
     smallImg.innerText = "Please provide an image";
@@ -235,4 +290,20 @@ function setLocalStorage() {
   } else if (!localStorage.getItem("messages")) {
     localStorage.setItem("messages", JSON.stringify([]));
   }
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(";");
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == " ") {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
 }

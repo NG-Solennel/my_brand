@@ -303,6 +303,14 @@ table .person {
 .edt-idnone {
   display: none;
 }
+.loading {
+  height: 100vh;
+  width: 100vw;
+}
+.imgloading {
+  height: 100%;
+  width: 100%;
+}
 @media screen and (max-width: 700px) {
   .dash-nav {
     opacity: 0.98;

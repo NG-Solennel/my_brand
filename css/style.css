@@ -18,10 +18,12 @@ nav {
   color: #008ccf;
   display: flex;
   justify-content: space-between;
+  z-index: 200;
 }
 header nav .name-header {
-  margin-left: 150px;
+  margin-left: 100px;
 }
+
 header nav .name-header li {
   font-size: 24px;
   font-weight: 700;
@@ -30,6 +32,7 @@ header nav .name-header li {
 header nav .nav-items {
   list-style-type: none;
   display: flex;
+  text-align: center;
 }
 
 .nav-items .nav-item .nav-link {
@@ -89,7 +92,7 @@ header nav .nav-items {
 }
 .nav-items {
   position: relative;
-  margin-right: 200px;
+  margin-right: 100px;
 }
 .btn-git {
   background-color: #008ccf;
@@ -98,6 +101,19 @@ header nav .nav-items {
   padding: 0 10px;
   border-radius: 10px;
   margin-top: -5px;
+}
+.btn-git.login {
+  background-color: #008ccf;
+  transition: all 0.3s ease;
+  border: none;
+  padding: 0 10px;
+  border-radius: 10px;
+  margin-top: -5px;
+  margin-left: 20px;
+  width: 90px;
+}
+.btn-git.login:hover {
+  background-color: #032e42;
 }
 .btn-git:hover {
   background-color: #032e42;
@@ -114,6 +130,28 @@ header nav .nav-items {
   font-weight: 500;
   transition: all 0.3s ease;
   line-height: 40px;
+}
+#login-anchor {
+  width: 150px;
+  height: 40px;
+  color: #fff;
+  text-decoration: none;
+  border-color: #008ccf;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  line-height: 40px;
+  letter-spacing: 1.5px;
+}
+#login-anchor {
+  background-color: #032e42;
+}
+#login-anchor {
+  background-color: #008ccf;
+}
+#login-anchor:hover {
+  background-color: #032e42;
 }
 nav .name-header li a {
   color: #008ccf;
@@ -721,6 +759,143 @@ tr {
   background-color: #e74c3c;
   cursor: pointer;
 }
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 300px;
+  width: 400px;
+  border: none;
+  background-color: rgb(255, 255, 255, 0);
+}
+
+.imgloading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 10%;
+  width: 10%;
+}
+.logout {
+  margin-left: 30px;
+  width: 120px;
+  height: 40px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 20px;
+  background-color: #094561;
+  cursor: pointer;
+}
+
+.loginpop {
+  width: 300px;
+  height: 50px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loginpop::backdrop {
+  background-color: rgba(0, 140, 207, 0.2);
+}
+.logmessage {
+  position: absolute;
+  font-family: sans-serif;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+.logmessage a {
+  color: #008ccf;
+  text-decoration: underline;
+  border: none;
+}
+
+.popupreal {
+  width: 400px;
+  background: #fff;
+  border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 0 30px 30px;
+  border-color: white;
+  color: #333;
+}
+
+.popupreal img {
+  width: 100px;
+  margin-top: 0;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.popupreal h2 {
+  font-size: 38px;
+  font-weight: 600;
+  margin: 30px 0 10px;
+}
+
+.popupreal button {
+  width: 100%;
+  margin-top: 50px;
+  padding: 10px 0;
+  background: #089dea;
+  color: #fff;
+  border: 0;
+  outline: none;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.popupfail {
+  width: 400px;
+  background: #fff;
+  border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 0 30px 30px;
+  border-color: white;
+  color: #333;
+}
+
+.popupfail img {
+  width: 100px;
+  margin-top: 0;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.popupfail h2 {
+  font-size: 38px;
+  font-weight: 600;
+  margin: 30px 0 10px;
+}
+
+.popupfail button {
+  width: 100%;
+  margin-top: 50px;
+  padding: 10px 0;
+  background: #ee1b24;
+  color: #fff;
+  border: 0;
+  outline: none;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 @keyframes navLinkFade {
   from {
     opacity: 0;
@@ -746,7 +921,7 @@ tr {
     font-size: 14px;
   }
   .navbar-links {
-    margin-left: 100px;
+    margin-right: 100px;
   }
   .skills-item {
     max-width: 300px;
@@ -1401,7 +1576,7 @@ tr {
     row-gap: 0px;
     align-items: center;
     position: absolute;
-    left: -80px;
+    left: 0px;
     top: -25px;
     z-index: 10;
     width: 300px;
@@ -1414,10 +1589,18 @@ tr {
   }
   .nav-item {
     width: 100%;
-    height: 50px;
+    height: 40px;
     text-align: center;
     line-height: 50px;
     opacity: 0;
+    margin-top: 10px;
+  }
+
+  .login {
+    margin-top: 30px;
+  }
+  .logout {
+    margin-left: 0;
   }
   .nav-item a {
     width: 100%;
@@ -1439,8 +1622,6 @@ tr {
     color: #032e42;
   }
 
-  header nav .name-header {
-  }
   .intro {
     max-width: 350px;
   }
@@ -1648,7 +1829,7 @@ tr {
     margin-bottom: 60px;
   }
   .r-input {
-    width: 90%;
+    width: 100%;
     margin: 10px 0 20px 0;
     border: none;
     min-height: 30px;

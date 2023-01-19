@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/login.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title">Login</div>
+      <form action="./index.html" id="loginform" method="POST">
+        <div class="field emailfield">
+          <input type="text" class="email" />
+          <label>Email Address</label>
+          <small
+            ><span>Please fill in your email</span>
+            <i class="fas fa-exclamation-circle"></i
+          ></small>
+        </div>
+        <div class="field passwordfield">
+          <input type="password" class="password" />
+          <label>Password</label>
+          <small
+            ><span>Please fill in your password</span>
+            <i class="fas fa-exclamation-circle"></i
+          ></small>
+        </div>
+        <div class="error-message">
+          <small class="small">Incorrect email or password</small>
+          <i class="fas fa-exclamation-circle"></i>
+        </div>
+        <div class="field">
+          <input type="submit" value="Login" />
+        </div>
+        <div class="signup-link">
+          Not a user? <a href="./signup.html">Signup now</a>
+        </div>
+      </form>
+    </div>
+    <div class="next">
+      <i class="fas fa-arrow-right fa-10x"></i>
+      <button class="nextbtn">Go Back To Home</button>
+    </div>
+    <dialog class="loading">
+      <img
+        src="./Images/transparent-loader-gif.gif"
+        alt=""
+        class="imgloading"
+      />
+    </dialog>
+    <script src="./js/login.js"></script>
+  </body>
+</html>
