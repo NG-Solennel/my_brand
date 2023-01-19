@@ -1,4 +1,7 @@
-setLocalStorage();
+document.querySelector(".logout").addEventListener("click", () => {
+  localStorage.removeItem("a");
+  location.reload();
+});
 
 const cform = document.querySelector("#c-form");
 const cname = document.querySelector('input[type="text"]');
@@ -14,10 +17,19 @@ const divName = document.querySelector(".f-name");
 const divEmail = document.querySelector(".f-email");
 const divMessage = document.querySelector(".f-message");
 const divDesc = document.querySelector(".f-description");
-let sentModal = document.querySelector(".sentmessage");
-document.querySelector(".close-btn").addEventListener("click", () => {
+let sentModal = document.querySelector(".popupreal");
+let sentModalBtn = document.querySelector(".popupreal button");
+const loading = document.querySelector(".loading");
+let failModal = document.querySelector(".popupfail");
+let failModalBtn = document.querySelector(".popupfail button");
+
+sentModalBtn.addEventListener("click", () => {
   location.reload();
 });
+failModalBtn.addEventListener("click", () => {
+  location.reload();
+});
+
 let regLetters = /[A-Za-z]/g;
 let messageArr = [];
 let n = 0;
@@ -37,22 +49,44 @@ cform.addEventListener("submit", (e) => {
     checkName(cname.value.trim()) &&
     checkDesc(cdesc.value.trim())
   ) {
-    sentModal.showModal();
-
-    let message = {
-      id: n,
-      name: cname.value.trim(),
-      email: cemail.value.trim(),
-      message: cmessage.value.trim(),
-      description: cdesc.value.trim(),
-      hiring: getCheckbox(chire),
-    };
-    n++;
-    if (localStorage.getItem("messages")) {
-      messageArr = JSON.parse(localStorage.getItem("messages"));
+    loading.showModal();
+    let message = {};
+    if (cdesc.value.trim() == "" || cdesc.value.trim() == null) {
+      message = {
+        name: cname.value.trim(),
+        email: cemail.value.trim(),
+        message: cmessage.value.trim(),
+        hiring: getCheckbox(chire),
+      };
+    } else {
+      message = {
+        name: cname.value.trim(),
+        email: cemail.value.trim(),
+        message: cmessage.value.trim(),
+        description: cdesc.value.trim(),
+        hiring: getCheckbox(chire),
+      };
     }
-    messageArr.push(message);
-    localStorage.setItem("messages", JSON.stringify(messageArr));
+    fetch("https://renderapi-i55u.onrender.com/messages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(message),
+    })
+      .then((res) => {
+        loading.close();
+        if (res.status == 200) {
+          sentModal.showModal();
+        } else {
+          failModal.showModal();
+        }
+        return res.json();
+      })
+      .then((data) => console.log(data))
+      .catch((err) => {
+        failModal.showModal();
+      });
   }
 });
 cmessage.addEventListener("input", () => {
@@ -71,9 +105,9 @@ cdesc.addEventListener("input", () => {
 function getCheckbox(checkbox) {
   let p = "";
   if (checkbox.checked) {
-    p = "Yes";
+    p = true;
   } else {
-    p = "No";
+    p = false;
   }
   return p;
 }
@@ -110,21 +144,24 @@ function checkDesc(desc) {
     divDesc.classList.remove("success");
     smallDesc.textContent = "That text is not valid";
     return false;
-  } else if (desc.length < 10) {
+  } else if (desc.length < 5) {
     divDesc.classList.add("error");
     divDesc.classList.remove("success");
     smallDesc.textContent = "Too short of a description";
     return false;
-  } else if (desc.length < 70) {
+  } else if (desc.length < 10) {
     divDesc.classList.add("error");
     divDesc.classList.remove("success");
     smallDesc.textContent = "Tell me more";
     return false;
-  } else if (desc.length >= 70) {
+  } else if (desc.length >= 10 && desc.length < 200) {
     divDesc.classList.remove("error");
     return true;
   } else {
-    return true;
+    divDesc.classList.add("error");
+    divDesc.classList.remove("success");
+    smallDesc.textContent = "Too long";
+    return false;
   }
 }
 
@@ -137,6 +174,10 @@ function checkMessage(message, bool) {
     divMessage.classList.add("error");
     divMessage.classList.remove("success");
     smallMessage.textContent = "The message is too short";
+  } else if (message.length > 400) {
+    divMessage.classList.add("error");
+    divMessage.classList.remove("success");
+    smallMessage.textContent = "The message is too long";
   } else if (message.match(regLetters) == null) {
     divMessage.classList.add("error");
     divMessage.classList.remove("success");
@@ -182,17 +223,5 @@ function checkName(name) {
     divName.classList.add("success");
     divName.classList.remove("error");
     return true;
-  }
-}
-function setLocalStorage() {
-  if (!localStorage.getItem("blogs")) {
-    localStorage.setItem("blogs", JSON.stringify([]));
-  } else if (!localStorage.getItem("credentials")) {
-    localStorage.setItem(
-      "credentials",
-      JSON.stringify(["ngsolennel@gmail.com", "andela"])
-    );
-  } else if (!localStorage.getItem("messages")) {
-    localStorage.setItem("messages", JSON.stringify([]));
   }
 }

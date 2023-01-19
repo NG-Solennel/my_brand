@@ -64,6 +64,17 @@ textarea:focus {
   visibility: hidden;
 }
 
+.imgdiv {
+  height: 300px;
+  width: 700px;
+  display: block;
+  margin: auto;
+  margin-bottom: 30px;
+  overflow: hidden;
+  border-radius: 2px;
+  border: 2px solid rgb(64, 62, 62);
+}
+
 @media screen and (max-width: 500px) {
   #c-form .form-item {
     position: relative;
@@ -107,5 +118,12 @@ textarea:focus {
   #r-form .form-item small {
     position: absolute;
     top: 70%;
+  }
+  .imgpost {
+    max-width: 300px;
+  }
+  .imgdiv {
+    max-width: 300px;
+    height: 150px;
   }
 }

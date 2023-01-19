@@ -1,0 +1,256 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+html,
+body {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  background: #f2f2f2;
+  background: linear-gradient(-135deg, #227ca5, #022839);
+}
+::selection {
+  background: #008ccf;
+  color: #fff;
+}
+.wrapper {
+  width: 420px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+}
+.wrapper .title {
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 100px;
+  color: #fff;
+  user-select: none;
+  border-radius: 15px 15px 0 0;
+  background: linear-gradient(-135deg, #227ca5, #032e42);
+}
+.wrapper form {
+  padding: 10px 30px 0px 30px;
+}
+.wrapper form .field {
+  height: 50px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  position: relative;
+}
+.wrapper form .field input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 17px;
+  padding-left: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.wrapper form .field label {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  color: #999999;
+  font-weight: 400;
+  font-size: 17px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+form .content {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  align-items: center;
+  justify-content: space-around;
+}
+form .content .checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form .content input {
+  width: 15px;
+  height: 15px;
+  background: red;
+}
+form .content label {
+  color: #262626;
+  user-select: none;
+  padding-left: 5px;
+}
+form .content .pass-link {
+  color: "";
+}
+form .field input[type="submit"] {
+  color: #fff;
+  border: none;
+  padding-left: 0;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(-135deg, #227ca5, #008ccf);
+  transition: all 0.3s ease;
+}
+form .field input[type="submit"]:active {
+  transform: scale(0.95);
+}
+form .signup-link {
+  color: #262626;
+  margin-bottom: 30px;
+  text-align: center;
+}
+form .pass-link a,
+form .signup-link a {
+  color: #008ccf;
+  text-decoration: none;
+}
+form .pass-link a:hover,
+form .signup-link a:hover {
+  text-decoration: underline;
+}
+
+/* .wrapper form .field.success input:focus,
+form .field.success input:valid {
+  border-color: red;
+} */
+
+form .field small {
+  visibility: hidden;
+}
+.wrapper form .field.fail small {
+  color: #e74c3c;
+  visibility: visible;
+}
+
+form .field input:focus {
+  border-color: #008ccf;
+}
+form .field input:focus ~ label {
+  top: 0%;
+  font-size: 16px;
+  color: #008ccf;
+  background: #fff;
+  transform: translateY(-50%);
+}
+
+.error-message {
+  height: 40px;
+  color: #e74c3c;
+  text-align: center;
+  font-size: 22px;
+  visibility: hidden;
+}
+
+.fa-check-circle {
+  position: absolute;
+  top: 15px;
+  left: 90%;
+  color: #2ecc71;
+  visibility: hidden;
+}
+
+.field.success .fa-check-circle {
+  visibility: visible;
+}
+.field.success input {
+  border-color: #2ecc71;
+}
+
+form .field.fail input {
+  border-color: #e74c3c;
+}
+
+form .field small {
+  margin-left: 10%;
+  font-size: 14px;
+}
+
+.next {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.nextbtn {
+  height: 50px;
+  width: 200px;
+  border-radius: 10px;
+  color: #fff;
+  background-color: #032e42;
+  border-color: #032e42;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  transform: translate(-50%, -50%);
+  height: 300px;
+  width: 400px;
+  border: none;
+  background-color: rgb(255, 255, 255, 0);
+}
+
+.imgloading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 10%;
+  width: 10%;
+}
+
+.popupfail {
+  width: 400px;
+  background: #fff;
+  border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 0 30px 30px;
+  border-color: white;
+  color: #333;
+}
+
+.popupfail img {
+  width: 100px;
+  margin-top: 0;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.popupfail h2 {
+  font-size: 38px;
+  font-weight: 600;
+  margin: 30px 0 10px;
+}
+
+.popupfail button {
+  width: 100%;
+  margin-top: 50px;
+  padding: 10px 0;
+  background: #ee1b24;
+  color: #fff;
+  border: 0;
+  outline: none;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}

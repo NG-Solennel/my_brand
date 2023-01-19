@@ -53,6 +53,12 @@
                   <a class="contact-nav" href="./contact.html">CONNECT</a>
                 </button>
               </li>
+                 <li class="nav-item login">
+                <button class="btn-git login">
+                  <a class="login-nav" id= "login-anchor" href="./login.html">LOGIN</a>
+                </button>
+              </li>
+              
             </ul>
           </div>
         </nav>
@@ -138,14 +144,7 @@
             </div>
 <small class="sent">Message sent <i class="fas fa-check-circle"></i></small>
             <button class="btn form-item" type="submit">SEND MESSAGE</button>
-          <dialog class="sentmessage">
-            <div class="sentcont">
- <p>Your message was successfully sent, Thank You!!</p>
-            <h1>Sent!!</h1>
-            </div>
-           
-            <button class="close-btn"><i class="fa fa-remove close-icon"></i></button>
-          </dialog>
+         
           </form>
         </div>
       </section>
@@ -271,7 +270,21 @@ Follow for web design & development articles, opinions, and
           Copyright &copy; <span>2022</span> Ngabo Solennel Ltd.
         </p>
       </footer>
-  
+   <dialog class="loading">
+            <img src="./Images/transparent-loader-gif.gif" alt="" class="imgloading">
+          </dialog>
+          <dialog class="popupreal">
+        <img src="./Images/tick.png" alt="tick" />
+        <h2>Thank You!</h2>
+        <p>Your Message was successfully Sent, Thanks!</p>
+        <button type="button">OK</button>
+</dialog>
+<dialog class="popupfail">
+        <img src="./Images/clear.png" alt="tick" />
+        <h2>Sorry!!</h2>
+        <p>Error submitting your message (Possible reasons: Poor Internet Connection)</p>
+        <button type="button">Try Again</button>
+</dialog>
     <script src="./js/slider.js"></script>
   <script src="./js/cvalidation.js"></script>
   </body>

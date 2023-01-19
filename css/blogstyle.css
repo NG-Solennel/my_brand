@@ -178,4 +178,12 @@ body {
     justify-content: space-between;
     align-items: baseline;
   }
+
+  .swiper {
+    max-width: 320px;
+  }
+
+  .swiper-slide {
+    max-width: 270px;
+  }
 }
