@@ -1,15 +1,11 @@
 const rform = document.querySelector("#r-form");
-
+const loading = document.querySelector(".loading");
 const rmessage = document.querySelector(".r-message");
 
 let smallMessage = document.querySelector(".small-message");
 
 const divMessage = document.querySelector(".f-message");
 const logpop = document.querySelector(".loginpop");
-document.querySelector(".logout").addEventListener("click", () => {
-  localStorage.removeItem("a");
-  location.reload();
-});
 rform.addEventListener("submit", (e) => {
   e.preventDefault();
   if (!localStorage.getItem("a")) {
@@ -23,6 +19,7 @@ rform.addEventListener("submit", (e) => {
       let id =
         rform.closest(".p-main-container").firstElementChild.firstElementChild
           .innerText;
+      loading.showModal();
       fetch("https://renderapi-i55u.onrender.com/blogs/" + id + "/comments", {
         method: "POST",
         headers: {
@@ -30,9 +27,12 @@ rform.addEventListener("submit", (e) => {
           Authorization: "Bearer " + localStorage.getItem("a"),
         },
         body: JSON.stringify({ message: rmessage.value }),
+      }).then((res) => {
+        loading.close();
+        if (res.status == 200) {
+          location.reload();
+        }
       });
-
-      location.reload();
     }
   }
 });

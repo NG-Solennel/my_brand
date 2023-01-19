@@ -1,8 +1,3 @@
-document.querySelector(".logout").addEventListener("click", () => {
-  localStorage.removeItem("a");
-  location.reload();
-});
-
 const cform = document.querySelector("#c-form");
 const cname = document.querySelector('input[type="text"]');
 const cemail = document.querySelector(".c-email");
@@ -32,11 +27,7 @@ failModalBtn.addEventListener("click", () => {
 
 let regLetters = /[A-Za-z]/g;
 let messageArr = [];
-let n = 0;
-let m = JSON.parse(localStorage.getItem("messages"));
-if (m.length >= 1) {
-  n = Number(m[m.length - 1]["id"]) + 1;
-}
+
 cform.addEventListener("submit", (e) => {
   e.preventDefault();
   checkEmail(cemail.value.trim());
