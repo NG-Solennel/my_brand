@@ -144,14 +144,12 @@ fetch("https://renderapi-i55u.onrender.com/blogs", options)
     }
   });
 edtform.addEventListener("submit", (e) => {
-  loading.showModal();
   e.preventDefault();
-  console.log(edttitle.value);
-  console.log(edtimage.files[0]);
+  loading.showModal();
   formData.append("title", edttitle.value);
   formData.append("content", CKEDITOR.instances.editor2.getData());
   formData.append("image", edtimage.files[0]);
-  console.log(formData);
+
   fetch(
     "https://renderapi-i55u.onrender.com/blogs/" + sessionStorage.getItem("id"),
     {
@@ -191,8 +189,8 @@ edtimage.addEventListener("change", (event) => {
   }
 });
 
-function getToday() {
-  let date = new Date();
+function getToday(iso) {
+  let date = new Date(iso);
   let day = "";
   let value = date.getMonth() + 1;
   if (date.getDate() < 10) {

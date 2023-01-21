@@ -1,5 +1,7 @@
+const loading = document.querySelector(".loading");
 window.addEventListener("load", () => {
   const token = localStorage.getItem("a");
+  loading.showModal();
   if (!token) {
     window.open("../login.html", "_self");
   } else {
@@ -12,7 +14,6 @@ window.addEventListener("load", () => {
     }).then((res) => {
       if (res.status == 200) {
         loading.close();
-        window.open("./dashboard/dashboard.html", "_self");
       } else {
         loading.close();
         window.open("../login.html", "_self");
@@ -73,10 +74,9 @@ fetch("https://renderapi-i55u.onrender.com/messages", options)
       } else {
         desc.style.display = "none";
       }
-
-      data3.innerText = messages[i]["hiring"];
+      messages[i].hiring ? (data3.innerText = "Yes") : (data3.innerText = "No");
       content.innerText = messages[i]["message"];
-      mdate.innerText = getToday();
+      mdate.innerText = getToday(messages[i].date);
       data1.appendChild(email);
       data1.appendChild(br);
       data1.appendChild(name);
@@ -115,24 +115,8 @@ fetch("https://renderapi-i55u.onrender.com/messages", options)
     }
   });
 
-let messages = JSON.parse(localStorage.getItem("messages"));
-
-dbtn.addEventListener("click", () => {
-  let index = Number(
-    dbtn.parentElement.parentElement.firstElementChild.innerText
-  );
-
-  let newMessages = messages.filter((m) => {
-    return m.id !== index;
-  });
-
-  localStorage.removeItem("messages");
-  localStorage.setItem("messages", JSON.stringify(newMessages));
-  location.reload();
-});
-
-function getToday() {
-  let date = new Date();
+function getToday(iso) {
+  let date = new Date(iso);
   let day = "";
   let value = date.getMonth() + 1;
   if (date.getDate() < 10) {

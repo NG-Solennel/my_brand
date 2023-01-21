@@ -32,7 +32,6 @@ fetch("https://renderapi-i55u.onrender.com/blogs/" + loc + "/comments", {
       }
     }
   });
-let blogs = JSON.parse(localStorage.getItem("blogs"));
 
 function getToday(iso) {
   let date = new Date(iso);
