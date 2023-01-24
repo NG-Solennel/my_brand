@@ -1,5 +1,6 @@
 let bCont = document.querySelector(".blogs");
-let reg = /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g;
+let regTags = /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g;
+let regEntities = /(&.+;)/gi;
 
 const loading = document.querySelector(".loading");
 window.addEventListener("load", () => {
@@ -59,9 +60,11 @@ fetch("https://renderapi-i55u.onrender.com/blogs", options)
         date.innerText = getToday(blogs[i].date);
         image.setAttribute("src", blogs[i]["image"]);
         title.innerText = blogs[i]["title"];
-        description.innerText = blogs[i]["content"]
-          .replaceAll(reg, "")
-          .substring(0, 120);
+        description.innerText =
+          blogs[i]["content"]
+            .replaceAll(regTags, "")
+            .replaceAll(regEntities, "")
+            .substring(0, 120) + "...";
         likes.innerText = blogs[i].likes.Count;
         comments.innerText = blogs[i]["comments"].length;
         link.innerText = "Read More";
@@ -170,19 +173,3 @@ function getToday(iso) {
   }
   return day + " " + m + " " + " " + date.getFullYear();
 }
-
-// function getCookie(cname) {
-//   let name = cname + "=";
-//   let decodedCookie = decodeURIComponent(document.cookie);
-//   let ca = decodedCookie.split(";");
-//   for (let i = 0; i < ca.length; i++) {
-//     let c = ca[i];
-//     while (c.charAt(0) == " ") {
-//       c = c.substring(1);
-//     }
-//     if (c.indexOf(name) == 0) {
-//       return c.substring(name.length, c.length);
-//     }
-//   }
-//   return "";
-// }
